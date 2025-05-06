@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
         <HomeHero />
-        <HomeReviews />
+        <HomeReviews contentLimit={3} header={"Recent Reviews"}/>
     </div>
   );
 }
