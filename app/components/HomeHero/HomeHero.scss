@@ -1,0 +1,30 @@
+// Logo animation //
+@keyframes drop {
+    0% {
+        top: -965px;
+    }
+
+    100% {
+        top: 135px;
+    }
+}
+.asset-container {
+    position: absolute;
+    top: -965px;
+    left:calc(50% - 51px);
+    z-index:0;
+    animation: drop 1s cubic-bezier(0.58,-0.01, 0.41, 1.49) 200ms forwards;
+}
+@keyframes fade {
+    0% {
+        opacity:1;
+    }
+
+    100% {
+        opacity:0;
+    }
+}
+.fade-out{
+    animation: fade 1s cubic-bezier(0.58,-0.01, 0.41, 1.49) 1.4s forwards;
+}
+
