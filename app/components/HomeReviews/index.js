@@ -4,24 +4,24 @@ import Image from "next/image";
 import React, { useContext } from "react";
 import { AppContext } from "../AppContext";
 
-const HomeReviews = ({ contentLimit, header, marginTop }) => {
-    const { reviews } = useContext(AppContext);
+const HomeReviews = ({ data, contentLimit, header, marginTop }) => {
+    //const { reviews } = useContext(AppContext);
     
     return (
 
-        <div className={`flex flex-col justify-self-center w-[1200px] ${marginTop}`}>
+        <div className={`flex flex-col justify-self-center w-[70%] ${marginTop}`}>
             <h2 className="text-2xl">{header}</h2>
-            {reviews && contentLimit ? (
+        
                 <div className="flex mb-4 flex-wrap">
-                    {reviews.slice(0, contentLimit).map((review) => (
-                        <div className="flex flex-col justify-center w-[30%] ml-5 mr-2 my-8 border border-gray-600 rounded-lg" key={review.id}>
+                    {data?.slice(0, contentLimit).map((review) => (
+                        <div className="flex flex-col justify-start w-[30%] ml-5 mr-2 my-8 border border-gray-600 rounded-lg" key={review.id}>
                             <Link href="/">
                                 <Image
                                     src={review.img}
                                     width={1920}
                                     height={1080}
                                     alt={review.alt}
-                                    className="rounded-t-lg h-[202px]"
+                                    className="rounded-t-lg w-full"
                                 />
                                 <div className="flex flex-col gap-3 px-5 py-4">
                                     <div className="text-md text-gray-600">{review.perf_date}</div>
@@ -33,11 +33,6 @@ const HomeReviews = ({ contentLimit, header, marginTop }) => {
                         </div>
                     ))}
                 </div>
-
-            ) : (
-                <h2>Loading...</h2>
-            )}
-
         </div>
     );
 };
