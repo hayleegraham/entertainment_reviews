@@ -4,12 +4,12 @@ import Image from "next/image";
 import React, { useContext } from "react";
 import { AppContext } from "../AppContext";
 
-const HomeReviews = ({ contentLimit, header }) => {
+const HomeReviews = ({ contentLimit, header, marginTop }) => {
     const { reviews } = useContext(AppContext);
     
     return (
 
-        <div className="flex flex-col justify-self-center w-[1200px] mt-16">
+        <div className={`flex flex-col justify-self-center w-[1200px] ${marginTop}`}>
             <h2 className="text-2xl">{header}</h2>
             {reviews && contentLimit ? (
                 <div className="flex mb-4 flex-wrap">
@@ -21,7 +21,7 @@ const HomeReviews = ({ contentLimit, header }) => {
                                     width={1920}
                                     height={1080}
                                     alt={review.alt}
-                                    className="rounded-t-lg"
+                                    className="rounded-t-lg h-[202px]"
                                 />
                                 <div className="flex flex-col gap-3 px-5 py-4">
                                     <div className="text-md text-gray-600">{review.perf_date}</div>
