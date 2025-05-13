@@ -20,7 +20,7 @@ export default function ReviewDetail() {
         if (reviews && !reviewData) {
             const data = getReviewByParams(bandName, urlDate);
             setReviewData(data);
-            console.log("pdp data:", data);
+            //console.log("pdp data:", data);
         }
     }, [reviews]);
 

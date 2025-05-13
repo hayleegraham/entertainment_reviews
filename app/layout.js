@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { AppProvider } from "./components/AppContext";
+import { Suspense } from 'react';
 
 
 const geistSans = Geist({
@@ -29,7 +30,9 @@ export default function RootLayout({ children }) {
         <div className="flex flex-col min-h-screen">
           <AppProvider>
             <Header />
-            {children}
+            <Suspense>
+              {children}
+            </Suspense>
             <Footer />
           </AppProvider>
         </div>

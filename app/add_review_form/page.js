@@ -1,9 +1,9 @@
 "use client"
 import Image from "next/image";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../components/AppContext";
 import "./add_review_form.scss";
-import { Datepicker, FileInput, HelperText, Label } from "flowbite-react";
+import { Datepicker } from "flowbite-react";
 
 export default function AddReviewForm() {
     const { venues } = useContext(AppContext);
@@ -131,7 +131,7 @@ export default function AddReviewForm() {
                     <label htmlFor="long_comments" className="block mb-2 font-medium text-gray-900 dark:text-white">Your Review:</label>
                     <textarea id="long_comments" rows="4" className="block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your comments here..." required></textarea>
                 </div>
-                
+
 
                 <button type="submit" className="text-white bg-[#007079] hover:bg-[#01585e] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-full sm:w-auto px-5 py-2 my-6 text-center">Add My Review!</button>
             </form>
