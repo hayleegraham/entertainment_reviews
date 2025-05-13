@@ -15,7 +15,7 @@ const HomeReviews = ({ data, contentLimit, header, marginTop }) => {
                 <div className="flex mb-4 flex-wrap">
                     {data?.slice(0, contentLimit).map((review) => (
                         <div className="flex flex-col justify-start w-[30%] ml-5 mr-2 my-8 border border-gray-600 rounded-lg" key={review.id}>
-                            <Link href="/">
+                            <Link href={`/review_detailed?name=${review.band_name.replace(/\s/g, "_")}&date=${encodeURIComponent(review.perf_date)}`}>
                                 <Image
                                     src={review.img}
                                     width={1920}

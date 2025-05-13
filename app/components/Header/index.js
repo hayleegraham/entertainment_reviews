@@ -25,7 +25,7 @@ const Header = () => {
       <div className="flex flex-row gap-8 my-auto mr-12 text-white">
         <Link href="/">Home</Link>
         <Link href="/reviews">Reviews</Link>
-        <Link href="/review_form">Add New Review</Link>
+        <Link href="/add_review_form">Add New Review</Link>
       </div>
     </div>    
   );

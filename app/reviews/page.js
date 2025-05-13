@@ -1,7 +1,6 @@
 "use client"
-import Link from "next/link";
 import Image from "next/image";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../components/AppContext";
 import "./reviews.scss";
 import HomeReviews from "../components/HomeReviews";
@@ -9,7 +8,7 @@ import HomeReviews from "../components/HomeReviews";
 export default function Reviews() {
     const { venues, setSelectedVenue, selectedVenue, filterByVenue, displayedReviews, filterBySearch, setSearchVal, searchVal, errorMsg } = useContext(AppContext);
 
-    //filter by category when dropdown option is selected
+    //filter by venue when dropdown option is selected
     const handleChange = (event) => {
         const filterValue = event.target.value;
         setSelectedVenue(filterValue);
@@ -24,7 +23,9 @@ export default function Reviews() {
 
     return (
         <div className="flex flex-col justify-center">
-            <div className="h-[380px]! w-screen bg-[#007079]">
+
+        {/* hero */}
+            <div className="h-[300px]! w-screen bg-[#007079]">
                 <div className="flex flex-col self-center z-10 text-center mt-52">
                     <div className="asset-container self-center">
                         <Image
@@ -43,7 +44,7 @@ export default function Reviews() {
                         />
                     </div>
 
-                    <h1 className="text-white text-4xl font-bold drop-shadow-[3px_3px_3px_rgba(0,0,0,.85)] mt-12">
+                    <h1 className="text-white text-4xl font-bold drop-shadow-[3px_3px_3px_rgba(0,0,0,.85)]">
                         Jamul Casino Entertainment Reviews
                     </h1>
                     <p className="text-white text-xl font-medium drop-shadow-[2px_2px_2px_rgba(0,0,0,.85)] mt-2">
@@ -54,6 +55,8 @@ export default function Reviews() {
             </div>
 
             <div className="flex mt-8 justify-end w-[78.5%]">
+
+            {/* search */}
                 <div className="w-[300px] mr-32">
                     <label
                         htmlFor="default-search"
@@ -89,7 +92,7 @@ export default function Reviews() {
                             value={searchVal}
                             type="search"
                             id="default-search"
-                            className="block w-full px-4 py-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
+                            className="block w-full px-4 py-2 ps-10 text-sm text-gray-900 border border-gray-500 rounded-lg bg-gray-50"
                             placeholder="Search Reviews"
                             required
                         />
@@ -102,6 +105,7 @@ export default function Reviews() {
                     </div>
                 </div>
 
+            {/* filter */}
                 <div>
                     <label htmlFor="categories">Filter by Venue:</label>
                     <select
@@ -119,12 +123,15 @@ export default function Reviews() {
                         ))}
                     </select>
                 </div>
+
             </div>
             
+        {/* reviews */}
             <div className="flex flex-col items-center">
             {errorMsg && <div className="p-5">{errorMsg}</div>}
                 <HomeReviews data={displayedReviews} contentLimit={5} header={"Reviews"} marginTop={"mt-4"} />
             </div>
+
         </div>
     );
 }

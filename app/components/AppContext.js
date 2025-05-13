@@ -70,15 +70,6 @@ const AppProvider = ({ children }) => {
 
   }, [])
 
-  //when project on homepage is clicked, return data for clicked item
-  const getReviewByName = (revName) => {
-    const reviewData = reviews.find(
-      (item) => item.band_name === revName
-    )
-    console.log("product data from context", reviewData);
-    return reviewData;
-  }
-
   const filterByVenue = (venue) => {
 
     const filteredReviews = reviews.filter((review) => {
@@ -114,11 +105,19 @@ const AppProvider = ({ children }) => {
     setErrorMsg("")
   }
 
+   //when review card is clicked, return data for review detailed page
+   const getReviewByParams = (bandName, perfDate) => {
+    const reviewData = reviews.find(
+      (item) => item.band_name === bandName && item.perf_date === perfDate)
+      
+    return reviewData;
+  }
+
   return (
     <AppContext.Provider
       value={{
         reviews,
-        getReviewByName,
+        getReviewByParams,
         venues,
         setSelectedVenue,
         selectedVenue,
